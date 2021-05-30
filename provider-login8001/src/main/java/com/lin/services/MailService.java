@@ -5,7 +5,6 @@ import com.lin.entity.User;
 import com.lin.entity.UserVo;
 import com.lin.mapper.UserMapper;
 import com.lin.utils.JWTUtils;
-import com.sun.mail.smtp.SMTPAddressFailedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
