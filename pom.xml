@@ -10,6 +10,7 @@
     <modules>
         <module>provider-login8001</module>
         <module>api-commons</module>
+        <module>consumer-login80</module>
     </modules>
     <packaging>pom</packaging>
 

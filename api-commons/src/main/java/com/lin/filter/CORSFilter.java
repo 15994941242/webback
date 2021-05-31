@@ -30,4 +30,3 @@ public class CORSFilter implements Filter {
 
     }
 }
-

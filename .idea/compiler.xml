@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="provider-login8001" />
         <module name="api-commons" />
+        <module name="consumer-login80" />
       </profile>
     </annotationProcessing>
   </component>

@@ -6,10 +6,7 @@ import com.lin.services.MailService;
 import com.lin.services.UserService;
 import com.lin.utils.JWTUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -25,10 +22,10 @@ public class UserController {
     private MailService mailService;
 
     @PostMapping("/login")
-    public Map<String, Object> login(@RequestParam String email, @RequestParam String password) {
+    public Map<String,Object> login(@RequestBody User user){
         Map<String, Object> map = new HashMap<>();
         try {
-            User userdb = userService.queryOne(email, password);
+            User userdb = userService.queryOne(user.getEmail(), user.getPassword());
             Map<String, String> payload = new HashMap<>();
             payload.put("userId", Integer.toString(userdb.getUserId()));
             payload.put("email", userdb.getEmail());
@@ -45,15 +42,16 @@ public class UserController {
     }
 
     //发送验证码
-    @PostMapping("/sendMail")
+    @GetMapping("/sendMail")
     public Map sendMail(@RequestParam String email) {
         Map<String, String> map = mailService.sendMail(email);
         return map;
     }
 
+
     @PostMapping("/register")
-    public Map<String, Object> register(@RequestBody UserVo userVo, HttpServletRequest request) {
-        boolean result = mailService.registered(userVo, request);
+    public Map<String, Object> register(@RequestBody UserVo userVo) {
+        boolean result = true;
         Map<String, Object> map = new HashMap<>();
         if (result == true) {
             map.put("state", true);
@@ -64,6 +62,21 @@ public class UserController {
         }
         return map;
     }
+
+
+//    @PostMapping("/register")
+//    public Map<String, Object> register(@RequestBody UserVo userVo, HttpServletRequest request) {
+//        boolean result = mailService.registered(userVo, request);
+//        Map<String, Object> map = new HashMap<>();
+//        if (result == true) {
+//            map.put("state", true);
+//            map.put("msg", "注册成功！");
+//        } else {
+//            map.put("state", false);
+//            map.put("msg", "注册失败！");
+//        }
+//        return map;
+//    }
 
 
 }
