@@ -26,6 +26,9 @@ public class MailService {
     @Autowired
     private UserMapper userMapper;
 
+    @Autowired
+    private HttpServletRequest request;
+
     @Value("1351503414@qq.com")
     private String from;
 
@@ -78,7 +81,7 @@ public class MailService {
     }
 
     //检验验证码
-    public boolean registered(UserVo userVo, HttpServletRequest request) {
+    public boolean registered(UserVo userVo) {
         String codeToken = request.getHeader("codeToken");
         DecodedJWT verify = JWTUtils.verify(codeToken);
         String email = verify.getClaim("email").asString();

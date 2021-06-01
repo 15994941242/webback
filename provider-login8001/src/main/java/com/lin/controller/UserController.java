@@ -49,24 +49,9 @@ public class UserController {
     }
 
 
-    @PostMapping("/register")
-    public Map<String, Object> register(@RequestBody UserVo userVo) {
-        boolean result = true;
-        Map<String, Object> map = new HashMap<>();
-        if (result == true) {
-            map.put("state", true);
-            map.put("msg", "注册成功！");
-        } else {
-            map.put("state", false);
-            map.put("msg", "注册失败！");
-        }
-        return map;
-    }
-
-
 //    @PostMapping("/register")
-//    public Map<String, Object> register(@RequestBody UserVo userVo, HttpServletRequest request) {
-//        boolean result = mailService.registered(userVo, request);
+//    public Map<String, Object> register(@RequestBody UserVo userVo) {
+//        boolean result = mailService.registered(userVo, request);;
 //        Map<String, Object> map = new HashMap<>();
 //        if (result == true) {
 //            map.put("state", true);
@@ -77,6 +62,21 @@ public class UserController {
 //        }
 //        return map;
 //    }
+
+
+    @PostMapping("/register")
+    public Map<String, Object> register(@RequestBody UserVo userVo) {
+        boolean result = mailService.registered(userVo);
+        Map<String, Object> map = new HashMap<>();
+        if (result == true) {
+            map.put("state", true);
+            map.put("msg", "注册成功！");
+        } else {
+            map.put("state", false);
+            map.put("msg", "注册失败！");
+        }
+        return map;
+    }
 
 
 }
