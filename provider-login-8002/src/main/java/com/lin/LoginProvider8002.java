@@ -8,10 +8,8 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @EnableEurekaClient
 @EnableDiscoveryClient
 @SpringBootApplication
-public class LoginConsumer80 {
-
-    public static void main(String[] args) {
-        SpringApplication.run(LoginConsumer80.class);
+public class LoginProvider8002 {
+    public static void main(String[] args){
+        SpringApplication.run(LoginProvider8002.class);
     }
-
 }
