@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 @RestController
@@ -34,7 +33,7 @@ public class LoginController {
     }
 
     @PostMapping("/register")
-    public Map<String, Object> register(@RequestBody UserVo userVo, HttpServletRequest request) {
-        return restTemplate.postForObject(LOGIN_URL + "/register", userVo, Map.class);
+    public Map<String, Object> register(@RequestBody UserVo userVo) {
+        return restTemplate.postForObject(LOGIN_URL + "/register", userVo , Map.class);
     }
 }
