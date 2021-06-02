@@ -7,10 +7,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="eurake-server-7001" />
         <module name="provider-login8001" />
+        <module name="provider-login-8002" />
+        <module name="provider-login8002" />
         <module name="api-commons" />
         <module name="consumer-login80" />
+        <module name="eurake-server-7002" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="provider-login8002" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

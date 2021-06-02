@@ -13,10 +13,15 @@ import java.util.Map;
 @RestController
 @Slf4j
 public class LoginController {
-    public static final String LOGIN_URL = "http://localhost:8001";
-
+//    public static final String LOGIN_URL = "http://localhost:8001";
+    public static final String LOGIN_URL = "http://LOGIN-PROVIDER-SERVICE";
     @Resource
     private RestTemplate restTemplate;
+
+    @GetMapping("/getHost")
+    public String getHost(){
+        return restTemplate.getForObject(LOGIN_URL + "/getHost",String.class);
+    }
 
     @PostMapping("/login")
     public Map<String, Object> login(@RequestBody User user) {

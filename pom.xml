@@ -11,6 +11,9 @@
         <module>provider-login8001</module>
         <module>api-commons</module>
         <module>consumer-login80</module>
+        <module>eurake-server-7001</module>
+        <module>eurake-server-7002</module>
+        <module>provider-login-8002</module>
     </modules>
     <packaging>pom</packaging>
 

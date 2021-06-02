@@ -6,6 +6,7 @@ import com.lin.services.MailService;
 import com.lin.services.UserService;
 import com.lin.utils.JWTUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,8 +17,16 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Value("${server.port}")
+    private String port;
+
     @Autowired
     private MailService mailService;
+
+    @GetMapping("/getHost")
+    public String getHost(){
+        return "查询成功，port="+port;
+    }
 
     @PostMapping("/login")
     public Map<String,Object> login(@RequestBody User user){
