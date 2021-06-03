@@ -12,6 +12,8 @@
         <module name="provider-login-8003" />
         <module name="provider-login-8002" />
         <module name="consumer-login80" />
+        <module name="provider-login-8004" />
+        <module name="consumerCS-login80" />
         <module name="api-commons" />
         <module name="eurake-server-7001" />
         <module name="consumerZk-login80" />

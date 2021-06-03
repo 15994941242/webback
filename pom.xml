@@ -16,6 +16,8 @@
         <module>provider-login-8002</module>
         <module>provider-login-8003</module>
         <module>consumerZk-login80</module>
+        <module>provider-login-8004</module>
+        <module>consumerCS-login80</module>
     </modules>
     <packaging>pom</packaging>
 
